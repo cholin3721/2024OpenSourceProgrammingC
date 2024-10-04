@@ -11,5 +11,6 @@ func main() {
 	fmt.Printf("value i : %d, vlaue f : %f\n", i, f)
 	//fmt.Printf("%d * %f = %f", i, f, i*f)//ginvalid operation: i * f (mismatched types int and float64)
 	fmt.Printf("%d * %f = %f\n", i, f, float64(i)*f)
+	fmt.Printf("%d * %f = %d\n", i, f, i*int(f))
 	fmt.Println(reflect.TypeOf(i))
 }
