@@ -11,20 +11,21 @@ import (
 
 func main() {
 	in := bufio.NewReader(os.Stdin)
-	fmt.Print("Input Your Score : ")
+	fmt.Print("점수 입력 : ")
 	i, err := in.ReadString('\n')
 	//fmt.Println(i, err)
 	if err != nil {
 		log.Fatal(err)
 	}
 	i = strings.TrimSpace(i)                //줄바꿈등 제거, 파이썬의 strip 함수와 비슷
-	score, _ := strconv.ParseInt(i, 10, 32) //10진 정수형(32bit)으로 변환
+	score, _ := strconv.ParseInt(i, 10, 32) //16진 정수형(32bit)으로 변환
+	var grade string
 	if score >= 90 {
-		fmt.Println("A")
-		fmt.Printf("%d", score)
-	} else {
-		fmt.Println("BCDF")
-		fmt.Printf("%d", score)
-	}
+		grade = "A"
 
+	} else {
+		grade = "BCDF"
+
+	}
+	fmt.Printf("%d점은 %s등급 입니다.\n", score, grade)
 }
