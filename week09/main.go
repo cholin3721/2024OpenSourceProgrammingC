@@ -15,7 +15,6 @@ func main() {
 
 	rand.Seed(time.Now().Unix()) //seed 값이 고정되면 난수가 고정됨, 유닉스 시간을 가져와서 시드값 고정 못하게 함
 	answer := rand.Intn(6) + 1
-	fmt.Println(answer)
 	var win bool = false
 
 	for guesses := 0; guesses < 3; guesses++ {
@@ -35,6 +34,7 @@ func main() {
 		if answer == guess {
 			fmt.Println()
 			fmt.Println("입력하신 수는 정답입니다. 선물은 없습니다.")
+			fmt.Println()
 			win = true
 			break
 		} else if answer > guess {
@@ -52,6 +52,6 @@ func main() {
 	if win == true {
 		fmt.Println("You Win!!")
 	} else {
-		fmt.Println("허접ㅋ")
+		fmt.Printf("답은 %d임ㅋ 병신ㅋ\n", answer)
 	}
 }
