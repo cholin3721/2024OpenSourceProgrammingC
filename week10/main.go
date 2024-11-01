@@ -4,12 +4,14 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"strconv"
 	"strings"
 )
 
 func main() {
+	//fmt.Printf("%f\n", math.Sqrt(16.0))
 	in := bufio.NewReader(os.Stdin)
 	fmt.Print("Input Number : ")
 	i, err := in.ReadString('\n')
@@ -28,12 +30,12 @@ func main() {
 		isPrime = false
 	} else {
 		j := 2
-		for j < n {
+		for j <= int(math.Sqrt(float64(n))) { //int와 float 타입은 타입이 달라 비교조차 되지 않는다.
 			if n%j == 0 {
 				isPrime = false
 				break //performance up
 			}
-			//fmt.Printf("%d ", j) // check j loop
+			fmt.Printf("%d ", j) // check j loop
 			j++
 
 		}
