@@ -25,18 +25,21 @@ func main() {
 	}
 
 	var isPrime bool = true
-	//bug fix
-	if n <= 1 { //A prime number is a champion number that is a number greater than 1 that is a divisor of 1 and itself.
+
+	if n <= 1 {
+	} else if n == 2 {
+		isPrime = true
+	} else if n%2 == 0 { //2를 제외한 짝수는 모두 소수가 아니다
 		isPrime = false
-	} else {
-		j := 2
-		for j <= int(math.Sqrt(float64(n))) { //int와 float 타입은 타입이 달라 비교조차 되지 않는다.
+	} else { //odd numbers
+		j := 3 // start value
+		for j <= int(math.Sqrt(float64(n))) {
 			if n%j == 0 {
 				isPrime = false
-				break //performance up
+				break
 			}
 			fmt.Printf("%d ", j) // check j loop
-			j++
+			j = j + 2            //increment
 
 		}
 	}
