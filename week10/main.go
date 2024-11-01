@@ -22,20 +22,22 @@ func main() {
 		log.Fatal(err)
 	}
 
-	//counts := 0
-	//bool타입은 1바이트, int는 4바이트라서 용량 더 적음
-	//is 변수 는 플래그 변수 is a number?
-	//bool타입으로 바꿔서 가독성을 높임 메모리 down
 	var isPrime bool = true
+	//bug fix
+	if n <= 1 { //A prime number is a champion number that is a number greater than 1 that is a divisor of 1 and itself.
+		isPrime = false
+	} else {
+		j := 2
+		for j < n {
+			if n%j == 0 {
+				isPrime = false
+				break //performance up
+			}
+			//fmt.Printf("%d ", j) // check j loop
+			j++
 
-	j := 2
-	for j < n {
-		if n%j == 0 {
-			isPrime = false //더하기 연산자 제거
 		}
-		j++
 	}
-
 	if isPrime {
 		fmt.Printf("%d is Prime Number", n)
 	} else {
