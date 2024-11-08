@@ -29,7 +29,7 @@ func isPrime(n int) bool {
 				//break
 				return false
 			}
-			fmt.Printf("%d ", j)
+			//fmt.Printf("%d ", j)
 			j = j + 2
 
 		}
@@ -38,26 +38,33 @@ func isPrime(n int) bool {
 
 }
 func main() {
-	//fmt.Printf("%f\n", math.Sqrt(16.0))
 	in := bufio.NewReader(os.Stdin)
-	fmt.Print("Input Number : ")
+	fmt.Print("Input Start Number : ")
+	a, err := in.ReadString('\n')
+	if err != nil {
+		log.Fatal(err)
+	}
+	a = strings.TrimSpace(a)
+	n1, err := strconv.Atoi(a)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Print("Input End Number : ")
 	i, err := in.ReadString('\n')
 	if err != nil {
 		log.Fatal(err)
 	}
 	i = strings.TrimSpace(i)
-	n, err := strconv.Atoi(i)
+	n2, err := strconv.Atoi(i)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	if isPrime(n) {
-		fmt.Printf("%d is Prime Number", n)
-	} else {
-		fmt.Printf("%d is NOT Prime Number", n)
+	for j := n1; j < n2; j++ {
+		if isPrime(j) {
+			fmt.Printf("%d ", j)
+		}
 	}
 
 }
-
-// 다른 언어로도 해볼것
-// 집에서 3.1 버전으로 합성수 소수 판별 해볼 것
