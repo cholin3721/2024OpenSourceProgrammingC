@@ -62,7 +62,7 @@ func main() {
 		if i == "Y" || i == "y" {
 			continue
 		} else {
-			return
+			break
 		}
 	}
 }
