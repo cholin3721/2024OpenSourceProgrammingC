@@ -2,10 +2,15 @@ package greeting //패키지는 소문자로 하고 폴더 이름이랑 똑같�
 
 import "fmt"
 
-func Hi(name string) {
+func hi(name string) {
 	fmt.Printf("Hi, %s!\n", name)
 }
 
-func Hello(name string) {
+func hello(name string) {
 	fmt.Printf("Hello, %s!\n", name)
+}
+
+func EnglishGreetings(name string) {
+	hello(name)
+	hi(name)
 }
