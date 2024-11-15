@@ -1,22 +1,13 @@
-// average calculates the average of several numbers.
 package main
 
 import (
 	"fmt"
-	"log"
-
-	"github.com/headfirstgo/datafile"
+	"reflect"
 )
 
 func main() {
-	numbers, err := datafile.GetFloats("data.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	var sum float64 = 0
-	for _, number := range numbers {
-		sum += number
-	}
-	sampleCount := float64(len(numbers))
-	fmt.Printf("Average: %0.2f\n", sum/sampleCount)
+	var gpa [5]float64 = [5]float64{3, 5, 4.1, 3.5, 4.23}
+	gpa_slice := gpa[1:4]
+	fmt.Println(gpa, reflect.TypeOf(gpa))
+	fmt.Println(gpa_slice, reflect.TypeOf(gpa_slice))
 }
